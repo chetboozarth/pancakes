@@ -1,0 +1,152 @@
+:root {
+  color-scheme: light;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: #79c7d9;
+  color: #23313a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 18% 15%, #ffe48f 0 9%, transparent 10%),
+    linear-gradient(#88d6ea 0 55%, #7dcf82 55% 100%);
+}
+
+.game-shell {
+  width: min(94vw, 980px);
+  padding: 16px;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hud > div {
+  min-height: 64px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border: 3px solid #23313a;
+  border-radius: 8px;
+  background: #fff7d6;
+  box-shadow: 0 5px 0 #23313a;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hud strong {
+  font-size: clamp(1.45rem, 4vw, 2.1rem);
+  line-height: 1;
+}
+
+canvas {
+  width: 100%;
+  aspect-ratio: 900 / 560;
+  display: block;
+  border: 4px solid #23313a;
+  border-radius: 8px;
+  background: #b7ecff;
+  box-shadow: 0 8px 0 #23313a;
+  touch-action: none;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 86px 1fr 86px;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+button {
+  min-height: 58px;
+  border: 3px solid #23313a;
+  border-radius: 8px;
+  background: #ffca3a;
+  color: #23313a;
+  box-shadow: 0 5px 0 #23313a;
+  font: inherit;
+  font-size: 1.5rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #23313a;
+}
+
+#start {
+  background: #ff7b54;
+}
+
+.speed-panel {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: max-content 1fr 72px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 3px solid #23313a;
+  border-radius: 8px;
+  background: #fff7d6;
+  box-shadow: 0 5px 0 #23313a;
+  font-weight: 800;
+}
+
+.speed-panel label,
+.speed-panel output {
+  white-space: nowrap;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #ff7b54;
+  cursor: pointer;
+}
+
+.message {
+  min-height: 28px;
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-weight: 800;
+}
+
+@media (max-width: 620px) {
+  .game-shell {
+    padding: 10px;
+  }
+
+  .hud {
+    gap: 8px;
+  }
+
+  .hud > div {
+    min-height: 54px;
+  }
+
+  .controls {
+    grid-template-columns: 76px 1fr 76px;
+  }
+
+  .speed-panel {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+    text-align: center;
+  }
+}
